@@ -1,0 +1,12 @@
+void
+imagev (float4 position : POSITION,
+	float2 texCoord : TEXCOORD0,
+
+	uniform float4x4 ModelViewProj,
+
+	out float4 oPosition : POSITION,
+	out float2 oTexCoord : TEXCOORD0)
+{
+	oPosition = mul (ModelViewProj, position);
+	oTexCoord = texCoord;
+}

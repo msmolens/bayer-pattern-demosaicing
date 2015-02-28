@@ -1,0 +1,60 @@
+void
+bayerf (float4 position        : POSITION,
+	float2 texCoord        : TEXCOORD0,
+	float4 texCoord_ne_nw  : TEXCOORD1,
+	float4 texCoord_n_s    : TEXCOORD2,
+	float4 texCoord_e_w    : TEXCOORD3,
+	float4 texCoord_se_sw  : TEXCOORD4,
+	
+	uniform samplerRECT bayer,
+	uniform sampler2D mask,
+
+	out float4 color : COLOR)
+{
+	// Fetch Bayer texture color at neighboring fragments.
+	float bayer_ne     = texRECT (bayer, texCoord_ne_nw.xy).r;
+	float bayer_nw     = texRECT (bayer, texCoord_ne_nw.zw).r;
+	float bayer_n      = texRECT (bayer, texCoord_n_s.xy).r;
+	float bayer_s      = texRECT (bayer, texCoord_n_s.zw).r;
+	float bayer_e      = texRECT (bayer, texCoord_e_w.xy).r;
+	float bayer_w      = texRECT (bayer, texCoord_e_w.zw).r;
+	float bayer_se     = texRECT (bayer, texCoord_se_sw.xy).r;
+	float bayer_sw     = texRECT (bayer, texCoord_se_sw.zw).r;
+	float bayer_center = texRECT (bayer, texCoord).r;
+
+	// Calculate averages.
+	float horizontal = 0.5  * (bayer_w + bayer_e);
+	float vertical   = 0.5  * (bayer_n + bayer_s);
+	float diagonal   = 0.25 * (bayer_nw + bayer_ne + bayer_sw + bayer_se);
+	float adjacent   = 0.25 * (bayer_n + bayer_s + bayer_e + bayer_w);
+
+	// Calculate mask values.
+	// color_mask.r is 1.0 if this is a red pixel in the Bayer image
+	float4 color_mask = float4 (tex2D (mask, 0.5 * texCoord));
+
+//	float4x4 m = float4x4 (bayer_center, vertical, diagonal, horizontal,
+//			       adjacent, bayer_center, adjacent, bayer_center,
+//			       diagonal, horizontal, bayer_center, vertical,
+//			       0, 0, 0, 1);
+
+	// Calculate fragment color.
+	color.r =
+		color_mask.r * bayer_center +
+		color_mask.b * diagonal +
+		color_mask.g * vertical +
+		color_mask.a * horizontal;
+	
+	color.g =
+		color_mask.g * bayer_center +
+		color_mask.a * bayer_center +
+		color_mask.b * adjacent +
+		color_mask.r * adjacent;
+
+	color.b =
+		color_mask.b * bayer_center +
+		color_mask.r * diagonal +
+		color_mask.g * horizontal +
+		color_mask.a * vertical;
+
+//	color = mul (m, color_mask);
+}

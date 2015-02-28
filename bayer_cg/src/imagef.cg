@@ -1,0 +1,21 @@
+void
+imagef (float2 texCoord : TEXCOORD0,
+	
+	uniform float brightness,
+	uniform float contrast,
+	uniform bool grayscale,
+	uniform samplerRECT decal,
+	
+	out float4 color : COLOR)
+{
+	color = texRECT (decal, texCoord);
+
+	// Adjust brightness.
+	color *= brightness;
+
+	// Adjust contrast.
+	color = (color - 0.5) * contrast + 0.5;
+
+	// Convert to grayscale.
+	color.rgb = grayscale ? dot (float3 (0.3, 0.59, 0.11), color.rgb) : color.rgb;
+}

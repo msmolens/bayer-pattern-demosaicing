@@ -1,0 +1,2 @@
+Creates a Bayer pattern image from an RGB image by discarding two
+color channels at each pixel.

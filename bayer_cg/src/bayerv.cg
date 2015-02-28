@@ -1,0 +1,24 @@
+void
+bayerv (float2 position : POSITION,
+	float2 texCoord : TEXCOORD0,
+
+	out float4 oPosition       : POSITION,
+	out float2 oTexCoord       : TEXCOORD0,
+	out float4 oTexCoord_ne_nw : TEXCOORD1,
+	out float4 oTexCoord_n_s   : TEXCOORD2,
+	out float4 oTexCoord_e_w   : TEXCOORD3,
+	out float4 oTexCoord_se_sw : TEXCOORD4)
+{
+	oPosition = float4 (position, 0, 1);
+	oTexCoord = texCoord;
+
+	// Calculate texture coordinates of neighboring fragments.
+	oTexCoord_ne_nw.xy = texCoord + 1;
+	oTexCoord_ne_nw.zw = texCoord + float2 (-1, 1);
+	oTexCoord_n_s.xy   = texCoord + float2 (0, 1);
+	oTexCoord_n_s.zw   = texCoord - float2 (0, 1);
+	oTexCoord_e_w.xy   = texCoord + float2 (1, 0);
+	oTexCoord_e_w.zw   = texCoord - float2 (1, 0);
+	oTexCoord_se_sw.xy = texCoord - float2 (-1, 1);
+	oTexCoord_se_sw.zw = texCoord - 1;
+}

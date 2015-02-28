@@ -1,0 +1,19 @@
+Max Smolens
+max@cs.unc.edu
+COMP 238 Assignment 4
+10 November, 2004
+
+REQUIRED LIBRARIES:
+
+GLUT
+ImageMagick (http://www.imagemagick.org/)
+GLEW        (http://glew.sourceforge.net/)
+NVIDIA's Cg (http://www.nvidia.com/cg/)
+
+COMPILING:
+
+My program compiles using 'make' on Linux.
+
+DESCRIPTION:
+
+See http://www.cs.unc.edu/~max/comp238/hw4/

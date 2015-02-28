@@ -1,0 +1,26 @@
+Bayer pattern image renderer
+--------------------------------------------------
+
+BayerRenderer.hpp:
+BayerRenderer.cpp:
+  Uses OpenGL to demosaic Bayer pattern images on the GPU.
+
+BayerRendererCPU.hpp:
+BayerRendererCPU.cpp:
+  Demosaics Bayer pattern images on the CPU.
+
+test_bayer_renderer.cpp:
+  Demonstration program for BayerRenderer class.
+
+test_bayer_renderer_cpu.cpp:
+  Demonstration program for BayerRendererCPU class.
+
+bayer.tiff:
+  Example Bayer pattern image.
+
+
+Dependencies
+--------------------------------------------------
+
+GLEW (http://glew.sourceforge.net/)
+ImageMagick (for example programs, http://www.imagemagick.org/)

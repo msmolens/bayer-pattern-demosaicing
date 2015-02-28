@@ -1,0 +1,11 @@
+void
+bayerf (float4 position : POSITION,
+	float2 texCoord : TEXCOORD0,
+	
+	uniform samplerRECT bayer,
+	uniform sampler2D mask,
+
+	out float4 color : COLOR)
+{
+	color = texRECT (bayer, texCoord);
+}

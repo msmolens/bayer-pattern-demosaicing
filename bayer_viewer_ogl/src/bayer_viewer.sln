@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bayer_viewer", "bayer_viewer.vcproj", "{914AB9E5-7D97-4266-BB34-EFD336274E36}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bayer_viewer_cpu", "bayer_viewer_cpu.vcproj", "{BDA46DC2-E840-42F9-8C8F-39BC344D36D5}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{914AB9E5-7D97-4266-BB34-EFD336274E36}.Debug.ActiveCfg = Debug|Win32
+		{914AB9E5-7D97-4266-BB34-EFD336274E36}.Debug.Build.0 = Debug|Win32
+		{914AB9E5-7D97-4266-BB34-EFD336274E36}.Release.ActiveCfg = Release|Win32
+		{914AB9E5-7D97-4266-BB34-EFD336274E36}.Release.Build.0 = Release|Win32
+		{BDA46DC2-E840-42F9-8C8F-39BC344D36D5}.Debug.ActiveCfg = Debug|Win32
+		{BDA46DC2-E840-42F9-8C8F-39BC344D36D5}.Debug.Build.0 = Debug|Win32
+		{BDA46DC2-E840-42F9-8C8F-39BC344D36D5}.Release.ActiveCfg = Release|Win32
+		{BDA46DC2-E840-42F9-8C8F-39BC344D36D5}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
