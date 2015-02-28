@@ -29,5 +29,5 @@ Digital cameras commonly use only a single CCD to capture an image. To support c
 
 See [`bayer_viewer_ogl/doc/bayer_renderer.pdf`](bayer_viewer_ogl/doc/bayer_renderer.pdf) for an overview of the reconstruction technique.
 
-See [`bayer_cg/doc/index.html`](bayer_cg/doc/index.html) for implementation details and performance analysis.
+See (http://msmolens.github.io/bayer-pattern-demosaicing/) for implementation details and performance analysis.
 
