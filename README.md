@@ -7,8 +7,8 @@ Research for Office of the Future Group; Assignment for COMP 238: Advanced Image
 Fall 2004
 
 ## Components
-[bayer_cg](bayer_cg): Bayer renderer using fragment programs.  
-[bayer_viewer_ogl](bayer_viewer_ogl): Bayer renderer using OpenGL texturing.  
+[bayer_cg](bayer_cg/src): Bayer renderer using fragment programs.  
+[bayer_viewer_ogl](bayer_viewer_ogl/src): Bayer renderer using OpenGL texturing.  
 [utils](utils): Utilities for generating test data.  
 
 ## Overview
